@@ -1,0 +1,5 @@
+SELECT columna3 FROM tabla WHERE fila = 3
+
+SELECT columna4 FROM tabla WHERE fila < 4
+
+SELECT * FROM WHERE fila < 4

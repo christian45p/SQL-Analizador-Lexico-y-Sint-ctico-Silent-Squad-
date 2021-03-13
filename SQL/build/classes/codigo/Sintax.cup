@@ -1,0 +1,47 @@
+package codigo;
+
+import java_cup.runtime.Symbol;
+
+parser code
+{:
+    private Symbol s;
+    
+    public void syntax_error(Symbol s){
+        this.s = s;
+    }
+
+    public Symbol getS(){
+        return this.s;
+}
+:};
+
+terminal Select, From, Where, Int, Igual, Todo,
+    Parentesis_a, Parentesis_c, P_coma, Menor, Menor_Igual, Mayor, Mayor_Igual,
+    Identificador, Numero, ERROR;
+non terminal SENTENCIA, INSTR, RESTRIC, CLAU, INF, CLAU1, CLAU2, TABL,
+    OP, CONSTENT, COL;
+
+start with SENTENCIA;
+
+SENTENCIA ::= INSTR | INSTR RESTRIC
+;
+INSTR ::= CLAU INF CLAU1 TABL
+;
+RESTRIC ::= CLAU2 Identificador OP CONSTENT
+;
+INF ::= Todo | COL
+;
+CLAU ::= Select
+;
+CLAU1 ::= From
+;
+CLAU2 ::= Where
+;
+TABL ::= Identificador
+;
+COL ::= Identificador COL | P_coma | Identificador
+;
+OP ::= Igual | Menor | Menor_Igual | Mayor | Mayor_Igual
+;
+CONSTENT ::= Numero
+;

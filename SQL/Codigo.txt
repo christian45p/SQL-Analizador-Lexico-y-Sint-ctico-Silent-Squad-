@@ -1,0 +1,1 @@
+SELECT * FROM tabla1 WHERE fila = 3
